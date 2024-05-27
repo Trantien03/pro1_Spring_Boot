@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <!-- Thêm liên kết tới CSS của Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #f440d6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-group {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Product</h1>
+    <form th:action="@{/edit/{id}(id=${product.id})}" th:object="${product}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter product name" />
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" id="price" th:field="*{price}" placeholder="Enter product price" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="Enter product description" />
+        </div>
+        <div class="btn-group" role="group">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="/" class="btn btn-secondary">Back to list</a>
+        </div>
+    </form>
+</div>
+
+<!-- Thêm liên kết tới JS của Bootstrap và jQuery (tùy chọn) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
